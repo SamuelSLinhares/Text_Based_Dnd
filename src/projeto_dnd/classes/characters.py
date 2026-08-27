@@ -39,7 +39,10 @@ class Character:
                 bonus_dano: int, 
                 iniciativa: int, 
                 espaço_magia: dict,
-                arma,) -> None:
+                arma,
+                habilidades: dict,
+                truques: dict,
+                magias: dict) -> None:
         self.forc = forc
         self.des = des
         self.con = con
@@ -59,7 +62,9 @@ class Character:
         self.iniciativa = iniciativa
         self.espaço_magia = espaço_magia
         self.arma = arma
-
+        self.habilidades = habilidades
+        self.truques = truques
+        self.magias = magias
 
     def rolar_dano(self) -> int:
         return self.arma.rolar_dano() + self.bonus_dano
@@ -80,7 +85,7 @@ class Character:
                 target.hp_atual -= dano
                 if target.hp_atual < 0:
                     target.hp_atual = 0
-                print(f'{self.nome} acertou {target.nome} e causou {dano} pontos de dano!')
+                print(f'{self.nome} acertou {target.nome} com {self.arma.nome} e causou {dano} pontos de dano!')
 
             else:
                 print(f'{self.nome} errou o golpe em {target.nome}!')
@@ -102,7 +107,7 @@ class Character:
                 target.hp_atual -= dano
                 if target.hp_atual < 0:
                     target.hp_atual = 0
-                print(f'{self.nome} acertou {target.nome} e causou {dano} pontos de dano!')
+                print(f'{self.nome} acertou {target.nome} com {self.arma.nome} e causou {dano} pontos de dano!')
         
             else:
                 print(f'{self.nome} errou o golpe em {target.nome}!')
@@ -127,9 +132,41 @@ class PJ(Character):
                 bonus_dano: int, 
                 iniciativa: int, 
                 espaço_magia: dict,
-                arma) -> None:
-        super().__init__(forc, des, con, int, sab, car, nome, classe, hp_max, hp_atual, ca, bonus_ataque_fis, bonus_ataque_mag, movimento, cd, bonus_dano, iniciativa, espaço_magia, arma)
+                arma,
+                habilidades: dict,
+                truques: dict,
+                magias: dict) -> None:
+        super().__init__(forc, des, con, int, sab, car, nome, classe, hp_max, hp_atual, ca, bonus_ataque_fis, bonus_ataque_mag, movimento, cd, bonus_dano, iniciativa, espaço_magia, arma, habilidades, truques, magias)
 
-jorge = PJ(0, 0, 0, 0, 0, 0, "Jorge", "Guerreiro", 29, 29, 16, 6, 0, 6.5, 13, 4, +1, 0, espada_longa)
 
-cammila = PJ(0, 0, 0, 0, 0, 0, "Cammila", "Mago", 23, 23, 13, 1, 5, 9.0, 16, 1, 4, 2, toque_vampírico)
+class Ameaca(Character):
+    def __init__(self,
+                forc: int, 
+                des: int, 
+                con: int, 
+                int: int, 
+                sab: int, 
+                car: int, 
+                nome: str, 
+                classe: str, 
+                hp_max: int,
+                hp_atual: int, 
+                ca: int, 
+                bonus_ataque_fis: int, 
+                bonus_ataque_mag: int, 
+                movimento: float, 
+                cd: int, 
+                bonus_dano: int, 
+                iniciativa: int, 
+                espaço_magia: dict,
+                arma,
+                habilidades: dict,
+                truques: dict,
+                magias: dict) -> None:
+        super().__init__(forc, des, con, int, sab, car, nome, classe, hp_max, hp_atual, ca, bonus_ataque_fis, bonus_ataque_mag, movimento, cd, bonus_dano, iniciativa, espaço_magia, arma, habilidades, truques, magias)
+
+jorge = PJ(0, 0, 0, 0, 0, 0, "Jorge", "Guerreiro", 29, 29, 16, 6, 0, 6.5, 13, 4, +1,{"1": 1}, espada_longa, {"Recuperar Fôlego": ("Recupera 1d10+1 PVs", 2)}, None, None)
+
+cammila = PJ(0, 0, 0, 0, 0, 0, "Cammila", "Mago", 23, 23, 13, 1, 5, 9.0, 16, 1, 4, {"1": 2}, toque_vampírico, None, None, None)
+
+goblin = Ameaca(0, 0, 0, 0, 0, 0, "Goblin", "Ameaça", 71, 71, 13, 4, -1, 12.0, 12, 2, 3, None, espada_longa, None, None, None)
