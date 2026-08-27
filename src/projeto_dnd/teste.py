@@ -1,9 +1,8 @@
 from time import sleep
 from .classes.characters import jorge as p1, cammila as p2, goblin
-from .classes.abilities import recuperar_folego
-from .classes.combat import combat, mostrar_acoes
+from .classes.abilities import *
+from .classes.combat import combat
 from .classes.dados import *
-
 # PYTHONPATH=src python -m projeto_dnd.teste
 
 def main():

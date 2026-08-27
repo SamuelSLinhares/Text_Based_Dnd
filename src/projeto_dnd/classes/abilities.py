@@ -7,9 +7,12 @@ uma habilidade, será verificado se ele a possui, e então a função será exec
 
 '''
 
-def recuperar_folego(self):
+###ANTES DE EXECUTAR VERIFICAR SE HÁ USOS DISPONÍVEIS, APÓS EXECUTAR, REMOVER UM USO DO DICIONÁRIO
+
+def recuperar_folego(self, acoes):
     cura = (d10(1) + 1)
     self.hp_atual += cura
     if self.hp_atual > self.hp_max:
         self.hp_atual = self.hp_max
     print(f'{self.nome} usou Recuperar Fôlego e curou {cura}PVs ')
+    acoes.remove("AB")

@@ -19,6 +19,13 @@ from .weapons import *
     def use_item(self):
         pass """
 
+"""
+
+Todo personagem, sendo de Jogador ou CPU, deve ser um objeto da classe
+Character
+
+"""
+
 class Character:
     def __init__(self,
                 forc: int, 
@@ -165,7 +172,15 @@ class Ameaca(Character):
                 magias: dict) -> None:
         super().__init__(forc, des, con, int, sab, car, nome, classe, hp_max, hp_atual, ca, bonus_ataque_fis, bonus_ataque_mag, movimento, cd, bonus_dano, iniciativa, espaço_magia, arma, habilidades, truques, magias)
 
-jorge = PJ(0, 0, 0, 0, 0, 0, "Jorge", "Guerreiro", 29, 29, 16, 6, 0, 6.5, 13, 4, +1,{"1": 1}, espada_longa, {"Recuperar Fôlego": ("Recupera 1d10+1 PVs", 2)}, None, None)
+"""
+
+PJs e Ameaças de exemplo para testes! Adicionar objetos com valores
+mais limpos posteriormente
+
+"""
+
+
+jorge = PJ(0, 0, 0, 0, 0, 0, "Jorge", "Guerreiro", 29, 29, 16, 6, 0, 6.5, 13, 4, +1,{"1": 1}, espada_longa, {"Recuperar Fôlego": ("Ação Bônus: Recupera 1d10+1 PVs", 2)}, None, None)
 
 cammila = PJ(0, 0, 0, 0, 0, 0, "Cammila", "Mago", 23, 23, 13, 1, 5, 9.0, 16, 1, 4, {"1": 2}, toque_vampírico, None, None, None)
 
