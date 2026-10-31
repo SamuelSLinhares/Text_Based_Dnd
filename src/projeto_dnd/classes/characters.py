@@ -184,4 +184,4 @@ jorge = PJ(0, 0, 0, 0, 0, 0, "Jorge", "Guerreiro", 29, 29, 16, 6, 0, 6.5, 13, 4,
 
 cammila = PJ(0, 0, 0, 0, 0, 0, "Cammila", "Mago", 23, 23, 13, 1, 5, 9.0, 16, 1, 4, {"Nível 1": 2}, toque_vampírico, None, {"Chama Sagrada": ("Acão: Caso acerte, causa 1d8 de dano radiante", 999)}, {"Infligir Ferimentos": ("Ação: Caso acerte, causa 2d10 de dano necrótico", None)})
 
-goblin = Ameaca(0, 0, 0, 0, 0, 0, "Goblin", "Ameaça", 71, 71, 13, 4, -1, 12.0, 12, 2, 3, None, espada_longa, None, None, None)
+goblin = Ameaca(0, 0, 0, 0, 0, 0, "Goblin", "Ameaça", 30, 71, 5, 4, -1, 12.0, 12, 2, 3, None, espada_longa, None, None, None)
